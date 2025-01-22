@@ -147,7 +147,7 @@ def batch(tts_type,outname,params):
         raise Exception('必须安装 ffmpeg')    
     prompt_speech_16k=None
     if tts_type!='tts':
-        if not params['reference_audio'] or not os.path.exists(f"{root_dir}/{params['reference_audio']}"):
+        if not params['reference_audio'] or not os.path.exists(f"{params['reference_audio']}"):
             raise Exception(f'参考音频未传入或不存在 {params["reference_audio"]}')
         ref_audio=f"{tmp_dir}/-refaudio-{time.time()}.wav" 
         try:
@@ -289,8 +289,8 @@ def audio_speech():
         return jsonify({"error": {"message": f"{e}", "type": e.__class__.__name__, "param": f'speed={speed},voice={voice},input={text}', "code": 400}}), 500
      
 if __name__=='__main__':
-    host='127.0.0.1'
-    port=9233
+    host='0.0.0.0'
+    port=9933
     print(f'\n启动api:http://{host}:{port}\n')
     try:
         from waitress import serve
