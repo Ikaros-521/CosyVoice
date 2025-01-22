@@ -6,7 +6,11 @@ __pycache__/
 # Visual Studio Code files
 .vscode
 .vs
-
+*.mp3
+*.wav
+*.log
+test-*
+runtime
 # PyCharm files
 .idea
 
@@ -50,3 +54,6 @@ pretrained_models/*
 *_pb2_grpc.py
 *_pb2.py
 *.tar
+
+py311/
+hf_download/
