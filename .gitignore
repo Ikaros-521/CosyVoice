@@ -57,3 +57,4 @@ pretrained_models/*
 
 py311/
 hf_download/
+pretrained_models/CosyVoice2-0.5B/
