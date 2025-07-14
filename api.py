@@ -142,6 +142,10 @@ def get_available_speakers(version: str = "v2") -> list[str]:
     model = load_model(version)
     return model.list_available_spks()
 
+@app.get("/", description="获取API状态")
+async def get_status():
+    return {"status": "ok"}
+
 @app.get("/speakers", description="获取所有可用的角色列表")
 async def list_speakers() -> SpeakerListResponse:
     """
@@ -395,6 +399,8 @@ async def clone_eq(request: CloneRequest):
         音频文件 (WAV格式)
     """
     try:
+        print(request)
+        
         if not request.text:
             raise HTTPException(status_code=400, detail="缺少待合成的文本")
         if not request.reference_text:
